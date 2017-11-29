@@ -1,0 +1,12 @@
+L_DC_pwm_pin: 4
+L_DC_pin1: 5
+L_DC_pin2: 6
+R_DC_pwm_pin: 22
+R_DC_pin1: 23
+R_DC_pin2: 24
+PWM_Frequency : 50
+PWM_Range : 100
+L_RD_pinA : 12
+L_RD_pinB : 13
+R_RD_pinA : 20
+R_RD_pinB : 21
