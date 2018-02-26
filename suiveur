@@ -1,0 +1,64 @@
+int cap1=0,cap2=0,cap3=0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(10, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+void loop() {
+cap1=analogRead(A0);
+cap2=analogRead(A1);
+cap3=analogRead(A2);
+Serial.println("capture 1");
+Serial.println(cap1);
+Serial.println("capture 2");
+Serial.println(cap2);
+Serial.println("capture 3");
+Serial.println(cap3);
+if((cap1<200)&&(cap2>500)&&(cap3>500)){
+gauche (150);
+}
+else if((cap1>500)&&(cap2>200)&&(cap3<200)){
+droit (150);
+}
+else if((cap1>500)&&(cap2<200)&&(cap3>500)){
+go  (150);
+}
+}
+void go (int vitesse)
+{
+  digitalWrite(3, LOW);
+  digitalWrite(5, LOW);
+  analogWrite(11,vitesse);
+  digitalWrite(4, HIGH);
+  digitalWrite(6, HIGH);
+   analogWrite(10,vitesse);
+  
+}
+
+
+void gauche  (int vitesse)
+{
+  digitalWrite(3, HIGH);
+  digitalWrite(6, HIGH);
+  analogWrite(10,vitesse);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+   analogWrite(11,vitesse);
+  
+}
+void droit  (int vitesse)
+{
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  analogWrite(10,vitesse);
+  digitalWrite(3, LOW);
+  digitalWrite(6, LOW);
+   analogWrite(11,vitesse);
+  
+}
